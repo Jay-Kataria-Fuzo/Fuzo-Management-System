@@ -1,4 +1,5 @@
 import streamlit as st
+from st_supabase_connection import SupabaseConnection
 
 st.set_page_config("Management Dashboard", "https://joinfuzo.com/images/favicon/favicon-32x32.png", layout="wide")
 
