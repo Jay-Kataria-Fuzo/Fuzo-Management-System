@@ -6,6 +6,10 @@ st.set_page_config("Management Dashboard", "https://joinfuzo.com/images/favicon/
 
 conn = st.connection("supabase",type=SupabaseConnection)
 
+logo_url = "https://joinfuzo.com/images/logo-fuzo.png"  
+
+st.image(logo_url)
+
 st.header("Category Master")
 
 def build_paths(df):

@@ -8,6 +8,10 @@ st.set_page_config(
     layout="wide",
 )
 
+logo_url = "https://joinfuzo.com/images/logo-fuzo.png"  
+
+st.image(logo_url)
+
 st.header("Vendor Master")
 
 conn = st.connection("supabase", type=SupabaseConnection)
