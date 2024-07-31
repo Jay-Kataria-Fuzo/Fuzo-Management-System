@@ -9,11 +9,20 @@ st.set_page_config(
     layout="wide",
 )
 
+st.markdown('''
+            <style>
+            header {visibility: hidden;}
+            .st-emotion-cache-1jicfl2 {padding-top: 1rem}
+            </style>
+            ''', unsafe_allow_html=True)
+
 logo_url = "https://joinfuzo.com/images/logo-fuzo.png"  
 
 st.image(logo_url)
 
 st.header("Pricing Master")
+
+
 
 conn = st.connection("supabase", type=SupabaseConnection)
 
@@ -52,7 +61,8 @@ if len(df_vendors) >= 0 and len(df_products) >= 0:
             'product_id': [combo[1] for combo in combinations],
             'selling_price': [0] * len(combinations),
             'commission': [0] * len(combinations),
-            'inventory': [0] * len(combinations)
+            'inventory': [0] * len(combinations),
+            'specification': [""] * len(combinations)
         }
     df_pricing = pd.concat([pd.DataFrame(data), df_pricing], ignore_index=True)
 
@@ -75,10 +85,11 @@ if len(df_vendors) >= 0 and len(df_products) >= 0:
     }
 
     edited_df = st.data_editor(
-        data=display_df,
+        data=display_df[["id", "vendor_name", "product_name", "selling_price", "commission", "inventory", "specification"]],
         column_config=column_config,
         height=400,  
         width=800,   
+        use_container_width=True
     )
 
     col_save, col_reset = st.columns(2)

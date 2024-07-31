@@ -6,6 +6,13 @@ st.set_page_config("Management Dashboard", "https://joinfuzo.com/images/favicon/
 
 conn = st.connection("supabase",type=SupabaseConnection)
 
+st.markdown('''
+            <style>
+            header {visibility: hidden;}
+            .st-emotion-cache-1jicfl2 {padding-top: 1rem}
+            </style>
+            ''', unsafe_allow_html=True)
+
 logo_url = "https://joinfuzo.com/images/logo-fuzo.png"  
 
 st.image(logo_url)
